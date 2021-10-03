@@ -16,7 +16,7 @@ pipeline {
     stage('QA Deploy') {
       steps {
         echo 'Deploy in QA Environment'
-        jiraComment(issueKey: 'API - 13', body: 'Jenkins linked with JIRA')
+        jiraComment(issueKey: 'API-13', body: 'Jenkins linked with JIRA')
       }
     }
 
