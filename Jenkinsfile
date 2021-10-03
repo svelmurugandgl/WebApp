@@ -44,7 +44,10 @@ pipeline {
 
     stage('QA Certification') {
       when {
-        branch 'master'
+        not {
+          branch 'master'
+        }
+
       }
       steps {
         input 'Manual Approval'
@@ -59,7 +62,10 @@ pipeline {
 
     stage('UAT Certification ') {
       when {
-        branch 'master'
+        not {
+          branch 'master'
+        }
+
       }
       steps {
         echo 'UAT Certification'
