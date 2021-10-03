@@ -43,6 +43,9 @@ pipeline {
     }
 
     stage('QA Certification') {
+      when {
+        branch 'master'
+      }
       steps {
         input 'Manual Approval'
       }
@@ -65,9 +68,6 @@ pipeline {
     }
 
     stage('Prod Deploy') {
-      when {
-        branch 'master'
-      }
       steps {
         echo 'Production Deploy'
       }
