@@ -43,30 +43,24 @@ pipeline {
     }
 
     stage('QA Certification') {
-      when {
-        not {
-          branch 'master'
-        }
-
-      }
       steps {
         input 'Manual Approval'
       }
     }
 
     stage('UAT Deploy') {
-      steps {
-        echo 'Deploy into UAT'
-      }
-    }
-
-    stage('UAT Certification ') {
       when {
         not {
           branch 'master'
         }
 
       }
+      steps {
+        echo 'Deploy into UAT'
+      }
+    }
+
+    stage('UAT Certification ') {
       steps {
         echo 'UAT Certification'
         input 'UAT Approval'
@@ -74,6 +68,12 @@ pipeline {
     }
 
     stage('Prod Deploy') {
+      when {
+        not {
+          branch 'master'
+        }
+
+      }
       steps {
         echo 'Production Deploy'
       }
