@@ -55,22 +55,20 @@ pipeline {
     }
 
     stage('UAT Certification ') {
+      when {
+        branch 'master'
+      }
       steps {
-        when() {
-          branch 'master'
-        }
-
         echo 'UAT Certification'
         input 'UAT Approval'
       }
     }
 
     stage('Prod Deploy') {
+      when {
+        branch 'master'
+      }
       steps {
-        when() {
-          branch 'master'
-        }
-
         echo 'Production Deploy'
       }
     }
