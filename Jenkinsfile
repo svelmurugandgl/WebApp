@@ -61,6 +61,12 @@ pipeline {
     }
 
     stage('UAT Certification ') {
+      when {
+        not {
+          branch 'master'
+        }
+
+      }
       steps {
         echo 'UAT Certification'
         input 'UAT Approval'
